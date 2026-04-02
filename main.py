@@ -18,3 +18,10 @@ products = [
 
 def get_all_products():
     return products
+
+@app.get("/products/{id}")  
+def get_product_by_id(id: int):
+    for product in products:
+        if product.id == id:
+            return product
+    return {"message": "Product not found"}
